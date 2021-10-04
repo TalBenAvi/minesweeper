@@ -20,7 +20,7 @@ function printMat(mat, selector) {
             mat[i][j] = cell;
             cell.minesAroundCount = number;
             var className = 'cell cell' + i + '-' + j;
-            strHTML += `<td > <div class="${className}"  onclick="click(event,${i},${j})"></div> </td>`;
+            strHTML += `<td > <div class="${className}" onclick="cellClicked(${i},${j})"></div> </td>`;
         }
         strHTML += '</tr class="' + className + '">'
     }
