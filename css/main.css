@@ -1,0 +1,37 @@
+body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5D5DFb079MlSIuRnYTZhEiVAU3LyA5Xq_KA&usqp=CAU");
+    color: rgb(39, 50, 209);
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    margin: auto;
+    border-spacing: 0px;
+    border: 3px solid gray;
+}
+
+.number {
+    color: chartreuse;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    text-align: center;
+    font-size: 1.5em;
+    border: black solid 1px;
+}
+.cell:hover{
+cursor: pointer;
+background-color: rgb(60, 60, 60);
+}
+
+button {
+    font-size: large;
+    background-color: rgb(214, 247, 0);
+    border-radius: 40%;
+    margin: auto;
+    font-style: italic;
+}
