@@ -1,8 +1,14 @@
 body {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5D5DFb079MlSIuRnYTZhEiVAU3LyA5Xq_KA&usqp=CAU");
-    color: rgb(39, 50, 209);
+    color: rgb(13, 19, 99);
     margin: auto;
     text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table {
@@ -11,21 +17,22 @@ table {
     border: 3px solid gray;
 }
 
-.number {
-    color: chartreuse;
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
+td {
+    width: 35px;
+    height: 35px;
+    border-radius: 20%;
     background-color: gray;
     text-align: center;
     font-size: 1.5em;
     border: black solid 1px;
 }
-.cell:hover{
-cursor: pointer;
-background-color: rgb(60, 60, 60);
+.number {
+    color: chartreuse;
+}
+
+.uncovered {
+    background-color: rgb(60, 60, 60);
+    visibility: visible;
 }
 
 button {
@@ -34,4 +41,13 @@ button {
     border-radius: 40%;
     margin: auto;
     font-style: italic;
+}
+.timer {
+    font-size: 20px;
+    color: black;
+    margin: auto;
+    padding: 5px;
+    width: 60px;
+    height: 15px;
+    background-color:greenyellow;
 }
