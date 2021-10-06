@@ -2,19 +2,34 @@
 <html lang="en">
 
 <head>
-    <title>minesweeper</title>
+    <title>Minesweeper</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body onload="init()">
-    <h1>minesweeper</h1>
-    <h2>Lives: <span>💖💖💖</span></h2>
-    <div><button onclick="changeSize(this,4,2)">😁</button></div>
+    <h1>Minesweeper</h1>
+    <h2>
+        Lives: <span>💖💖💖</span>
+        <span class="hints">  Hints:
+            <span onclick="revealHint(this)">💡</span>
+            <span onclick="revealHint(this)">💡</span>
+            <span onclick="revealHint(this)">💡</span>
+        </span>
+        <span class="safepicks">safe cells:
+            <span onclick="revealeSafe(this)">🔍</span>
+            <span onclick="revealeSafe(this)">🔍</span>
+            <span onclick="revealeSafe(this)">🔍</span>
+        </span>
+    </h2>
+    <div>
+        <span class="timer"></span>
+        <button class='emoje' onclick="changeSize(this,4,2)">😁</button>
+        <button class='manual' onclick="makeBoardManually()">Manually</button>
+    </div>
     <button onclick="changeSize(this,4,2)">EASY(4X4)</button>
     <button onclick="changeSize(this,8,12)">MEDIUM(8X8)</button>
     <button onclick="changeSize(this,12,30)">HARD(12X12)</button>
     <div class="board-container"></div>
-    <div class="timer"></div>
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
 
