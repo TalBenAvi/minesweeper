@@ -304,7 +304,7 @@ function displayHints() {
 }
 function makeBoardManually() {
 
-    if (gGame.isOn) return;
+    if (!gGame.isOn) return;
     var mines = gLevel.MINES;
     gManual = false;
     alert(`place: ${mines} mines where you want to start the game`);
