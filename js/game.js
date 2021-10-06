@@ -1,4 +1,5 @@
 'use strict'
+'use strict'
 window.addEventListener("contextmenu", e => e.preventDefault());
 const MINE = '💣';
 const EMPTY = ' ';
@@ -28,10 +29,11 @@ var gGame = {
 }
 
 function init() {
+    gManual = false;
+    gManualPlaced = 0;
     gMarked = 0;
     gLives = 3;
     gHints = 3;
-    // gMinesLocation =[];
     gFirstMove = true;
     gGame = {
         isOn: true,
@@ -80,7 +82,7 @@ function cellClicked(elCell, i, j) {
     if (gLives === 0) checkIfOver();
     if (gBoard[i][j].isShown || gBoard[i][j].isMarked) return;
     if (!gGame.isOn && gGame.shownCount !== 0) return;
-    if (gManual) {
+    if (!gManual) {
         placeMinesManually(i, j);
         return;
     }
@@ -144,7 +146,7 @@ function cellMarked(elCell, i, j) {
     elSpanInCell.classList.toggle('marked');
 
     if (!gBoard[i][j].isMarked && gBoard[i][j].minesAroundCount !== 0) {
-        elSpanInCell.innerText = gBoard[i][j].minesAroundCount;
+        // elSpanInCell.innerText = gBoard[i][j].minesAroundCount;
     } else if (gBoard[i][j].isMarked) elSpanInCell.innerText = FLAG;
     else elSpanInCell.innerText = '';
 
@@ -303,7 +305,7 @@ function displayHints() {
 function makeBoardManually() {
     if (!gGame.isOn) return;
     var mines = gLevel.MINES;
-    gManual = true;
+    gManual = false;
     alert(`place: ${mines} mines where you want to start the game`);
 }
 function placeMinesManually(locationI, locationJ) {
@@ -319,7 +321,7 @@ function placeMinesManually(locationI, locationJ) {
         elCell.classList.remove('chosen');
     }, 1000);
     if (gManualPlaced === gLevel.MINES) {
-        gManual = false;
+        gManual = true;
         alert(`All the mines are placed you can start playing`)
     }
 }
