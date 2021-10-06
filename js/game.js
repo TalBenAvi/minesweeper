@@ -1,5 +1,4 @@
 'use strict'
-'use strict'
 window.addEventListener("contextmenu", e => e.preventDefault());
 const MINE = '💣';
 const EMPTY = ' ';
@@ -29,7 +28,7 @@ var gGame = {
 }
 
 function init() {
-    gManual = false;
+    gManual = true;
     gManualPlaced = 0;
     gMarked = 0;
     gLives = 3;
@@ -127,6 +126,7 @@ function firstClick(i, j) {
     if (gManualPlaced !== gLevel.MINES) {
         placeMine(gBoard, gLevel.MINES, i, j);
     }
+
     gMinesLocation = [];
     for (var i = 0; i < gLevel.SIZE; i++) {
         for (var j = 0; j < gLevel.SIZE; j++) {
@@ -303,7 +303,8 @@ function displayHints() {
     }
 }
 function makeBoardManually() {
-    if (!gGame.isOn) return;
+
+    if (gGame.isOn) return;
     var mines = gLevel.MINES;
     gManual = false;
     alert(`place: ${mines} mines where you want to start the game`);
