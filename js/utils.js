@@ -5,7 +5,7 @@ function renderBoard(board, selector) {
         strHTML += '<tr>';
         for (var j = 0; j < board[0].length; j++) {
             var cell = board[i][j];
-            var className="cell-${i}-${j}";
+            var className=`cell-${i}-${j}`;
             var cellTag = `<td class="${className}" oncontextmenu="cellMarked(this,${i},${j})" onclick="cellClicked(this,${i},${j})">`;
             if (cell.isMine) strHTML += cellTag + `<span>${MINE}</span></td>`;
             else {
@@ -23,12 +23,20 @@ function renderBoard(board, selector) {
     var elBoard = document.querySelector(selector);
     elBoard.innerHTML = strHTML;
 }
-// // location such as: {i: 2, j: 7}
-// function renderCell(location, value) {
-//     // Select the elCell and set the value
-//     var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
-//     elCell.innerHTML = value;
-// }
+
+function renderCell(cell, locationI, locationJ) {
+    if (cell.isShown) return;
+    cell.isShown = true;
+    var elCell = document.querySelector(`.cell-${locationI}-${locationJ}`);
+    console.log(elCell);
+    var elSpan = elCell.querySelector('span');
+    elCell.classList.add('reveal');
+    elSpan.classList.add('reveal');
+    if (cell.isMine) elSpan.innerText = MINE;
+    else if (cell.minesAroundCount !== 0) elSpan.innerText = cell.minesAroundCount;
+    else elSpan.innerText = 0;
+}
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
